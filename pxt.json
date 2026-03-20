@@ -8,7 +8,8 @@
         "microphone": "*",
         "microbit-pxt-clicks": "github:bsiever/microbit-pxt-clicks#v0.2.2",
         "pxt-morse": "github:bsiever/pxt-morse#v2.0.1",
-        "radio-broadcast": "*"
+        "radio-broadcast": "*",
+        "Wait Until Custom Blocks": "github:teacherpinky/wait-until-blocks#v0.1.12"
     },
     "files": [
         "main.blocks",

@@ -3,23 +3,16 @@ enum RadioMessage {
     SOS = 12905,
     message1 = 49434
 }
+/**
+ * dont re-upload!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ */
 input.onPinPressed(TouchPin.P0, function () {
     language = 0
     basic.showString("M")
     basic.clearScreen()
 })
 radio.onReceivedMessage(RadioMessage.Change_chanel, function () {
-    Channel += 1
-    radio.setGroup(Channel)
-    music.play(music.stringPlayable("A G C5 - - - C - ", 800), music.PlaybackMode.InBackground)
-    basic.showLeds(`
-        . . # . .
-        . # # # .
-        # . # . #
-        . . # . .
-        . . # . .
-        `)
-    basic.clearScreen()
+	
 })
 input.onButtonPressed(Button.A, function () {
     if (language == 1) {
@@ -92,16 +85,16 @@ buttonClicks.onButtonHeld(buttonClicks.AorB.A, function () {
     radio.sendMessage(RadioMessage.Change_chanel)
     Channel += 1
     radio.setGroup(Channel)
-    music.play(music.stringPlayable("A G C5 - - - C - ", 800), music.PlaybackMode.InBackground)
-    basic.showLeds(`
-        . . # . .
-        . # # # .
-        # . # . #
-        . . # . .
-        . . # . .
-        `)
-    basic.clearScreen()
-    basic.pause(1000)
+    music.play(music.stringPlayable("C D - - C5 - - - ", 800), music.PlaybackMode.InBackground)
+    if (Channel > 5) {
+        basic.showNumber(0)
+        basic.clearScreen()
+        basic.pause(1000)
+    } else {
+        basic.showNumber(Channel)
+        basic.clearScreen()
+        basic.pause(1000)
+    }
 })
 let Channel = 0
 let Name = 0
@@ -134,7 +127,7 @@ radio.setGroup(1)
 Name = randint(0, 999)
 basic.showString("" + (Name))
 basic.clearScreen()
-Channel = 183
+Channel = 0
 radio.setGroup(Channel)
 basic.showLeds(`
     # # # # #
@@ -144,3 +137,8 @@ basic.showLeds(`
     # # # # #
     `)
 basic.clearScreen()
+basic.forever(function () {
+    if (Channel > 5) {
+        Channel = 0
+    }
+})
