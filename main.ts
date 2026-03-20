@@ -89,11 +89,11 @@ buttonClicks.onButtonHeld(buttonClicks.AorB.A, function () {
     if (Channel > 5) {
         basic.showNumber(0)
         basic.clearScreen()
-        basic.pause(1000)
+        basic.pause(700)
     } else {
         basic.showNumber(Channel)
         basic.clearScreen()
-        basic.pause(1000)
+        basic.pause(700)
     }
 })
 let Channel = 0
